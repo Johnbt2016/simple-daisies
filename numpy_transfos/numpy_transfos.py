@@ -22,5 +22,5 @@ if __name__ == "__main__":
     res1 = add_noise(a)
 
     res2 = dot_product(a, b)
-
+    print(res2)
     assert res2.all() == b.all()

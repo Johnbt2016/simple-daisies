@@ -111,7 +111,7 @@ def anisodiff(img,niter=1,kappa=50,gamma=0.1,step=(1.,1.),option=1,ploton=False)
 
 		fig.canvas.draw()
 
-	for ii in xrange(niter):
+	for ii in range(niter):
 
 		# calculate the diffs
 		deltaS[:-1,: ] = np.diff(imgout,axis=0)

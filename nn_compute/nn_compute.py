@@ -35,13 +35,8 @@ def split_data_array(data_array, batches):
 	return largeX_list
 
 ##################################################################################################
-def prepare_vector(transform_data, data_array):
+def prepare_vector(A, B, gradient, intercept, data_array):
 
-	u = transform_data
-	A = u['A']
-	B = u['B']
-	gradient = u['gradient']
-	intercept = u['intercept']
 
 	batches = 1
 	data_array = data_array.T
@@ -82,8 +77,8 @@ class NN:
 		self.out_property_unit = out_property_unit
 
 ##################################################################################################
-def compute(transform_data, mat_model, temp_model, data_array):
-	input_vectors = prepare_vector(transform_data, data_array = data_array)
+def compute(A, B, gradient, intercept, mat_model, temp_model, data_array):
+	input_vectors = prepare_vector(A, B, gradient, intercept, data_array = data_array)
 	temperature = predict(input_vectors, temp_model.model)
 	maturity = predict(input_vectors, mat_model.model)
 

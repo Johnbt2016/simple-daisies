@@ -1,3 +1,3 @@
 
-def store(data):
+def put(data):
     return data

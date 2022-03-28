@@ -97,33 +97,4 @@ def plot_grid(
     plt.tight_layout()
     return fig
 
-
-if __name__ == "__main__":
-
-    streamlit_ui()
-
-    # image_url = "https://petcaramelo.com/wp-content/uploads/2018/06/beagle-cachorro.jpg"
-    # img = image_from_url(image_url)
-    # preds = predict(img)
-    # # print(preds[0].pred.detection.bboxes)
-    # # i = draw_pred(pred = preds, display_bbox=True)
-    # # plt.imshow(i)
-    # annotations = [None] * len(preds)
-    # partials = [
-    #     partial(
-    #         show_pred,
-    #         pred=pred,
-    #         annotation=annotation
-    #     )
-    #     for pred, annotation in zip(preds, annotations)
-    # ]
-
-    # fig = plot_grid(
-    #     partials,
-    #     ncols=2,
-    #     figsize=(6, 6 * len(preds) / 2 / 0.75),
-    #     show=True,
-    #     axs_per_iter=2,
-    # )
-
-    # fig.savefig("test.png")
+streamlit_ui()

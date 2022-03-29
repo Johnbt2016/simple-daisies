@@ -1,18 +1,18 @@
-from unittest import result
-from pydaisi import Daisi
 import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
 from matplotlib.backends.backend_agg import RendererAgg
-_lock = RendererAgg.lock
 import time
-
 import streamlit as st
+from pydaisi import Daisi
+
+_lock = RendererAgg.lock
 
 news = Daisi("GoogleNews")
 classification = Daisi("Zero Shot Text Classification")
 
 def news_f(query, nb = 10):
+    #Daisi call to query Google News
     n = news.get_news(query = query, num = nb)
     print(n.value())
     data = n.value()['title'].tolist()
@@ -35,41 +35,25 @@ def plot_data(n_scores):
     
     return fig
 
-def get_fig(query, nb, bins):
-    data, _ = news_f(query, nb = nb)
-
-    all = [classification.compute_(text=d, candidate_labels="positive, negative") for d in data]
-    r = all[-1]
-    while r.get_status() == "RUNNING":
-        print("Waiting")
-
-    results = [a.value() for a in all]
-    print(results)
-    n_index = [aa['result']['labels'].index('negative') for aa in results]
-    scores = [v['result']['scores'] for v in results]
-    print(n_index)
-    n_scores = [s[n_index[ii]] for ii, s in enumerate(scores)]
-
-    fig = plot_data(n_scores)
-
-    return fig
-
 
 def streamlit_ui():
     st.title("Google News - Sentiment Analysis")
     query = st.sidebar.text_input('query', "Apple")
     nb_result = st.sidebar.slider("Number of results", 10, 50, 15)
-    st.write("Querying news")
+    st.markdown("Querying news about **" + query + "** with [Daisi(\"GoogleNews\")](https://app.daisi.io/daisies/62afa319-4408-49c0-ab64-38563f9cea2a/info) :blossom:")
+    
     data, df = news_f(query, nb = nb_result)
 
     st.success("News results available")
-    st.write("Classifying news")
+
+    st.markdown("Classifying news with [Daisi(\"Zero Shot Text Classification\")](https://app.daisi.io/daisies/237587e0-7c47-4a4f-afad-80370c8e98a4/info) :blossom:")
 
     my_bar = st.progress(0)
     all = []
     for i in range(len(data)):
         p = int(100*(i+1)/len(data))
         my_bar.progress(p)
+        #Asynchronous Daisi call to classify each Google News result
         all.append(classification.compute_(text=data[i], candidate_labels="positive, negative"))
         time.sleep(0.1)
 
@@ -82,10 +66,14 @@ def streamlit_ui():
     st.write("Fetching results")
     results = []
     my_bar = st.progress(0)
+     #Fetching Daisi executions results (could be parallelized)
     for i in range(len(all)):
         p = int(100*(i+1)/len(all))
         my_bar.progress(p)
-        results.append(all[i].value())
+        try:
+            results.append(all[i].value())
+        except:
+            continue
     
     n_index = [aa['result']['labels'].index('negative') for aa in results]
     scores = [v['result']['scores'] for v in results]
@@ -101,17 +89,8 @@ def streamlit_ui():
     st.dataframe(df)
 
 
-
-streamlit_ui()
-
-# if __name__ == "__main__":
-#     query = "Love"
-#     streamlit_ui()
-#     # n_scores = classify(query, nb = 20)
-
-#     # print(n_scores)
-#     # print(len(n_scores))
-#     # plot_data(n_scores)
+if __name__ == "__main__":
+    streamlit_ui()
 
 
 

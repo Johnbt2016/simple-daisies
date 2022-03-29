@@ -30,7 +30,7 @@ def predict(df:pd.DataFrame=None, period = 365):
 def ui_endpoint(df:pd.DataFrame=None, period = 365):
     if df is None:
         df = 'example_retail_sales.csv'
-    forecast, s = predict(df=df, period = period)
+    forecast, s = predict(df=df, period = int(period))
 
     return [{"type": "image", "label": "prediction", "data":  {"alt": "Prophet prediction", "src": "data:image/png;base64, " + s}},
             {"type": "dataframe", "id": "dataframe", "label": "Prophet forecast", "data": forecast}]

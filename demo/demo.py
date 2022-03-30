@@ -2,8 +2,7 @@
 
 from pydaisi import Daisi
 
-daisi_prophet = Daisi("Simple Prophet")
-geo = Daisi("GeoEncoder")
+
 
 
 import streamlit as st
@@ -17,6 +16,9 @@ from PIL import Image
 import pydeck as pdk
 import time
 import pickle
+
+daisi_prophet = Daisi("Simple Prophet")
+geo = Daisi("GeoEncoder")
 
 def hello(name):
     return name

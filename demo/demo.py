@@ -226,6 +226,7 @@ def st_ui():
             res = daisi_prophet.predict(df = df, period = period)
         
             imgdata = base64.b64decode(res.value()[1])
+            print(imgdata)
             image = Image.open(io.BytesIO(imgdata)).convert('RGBA')
             st.image(image)
 

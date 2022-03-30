@@ -20,7 +20,6 @@ import pickle
 
 def hello(name):
     return name
-
 @st.cache
 def data_prep():
     store_dataset = pd.read_csv("daily_sales_by_store-2.csv")
@@ -91,6 +90,7 @@ def data_prep():
 
     
     return store_dataset, product_dataset, zip_codes, stores_names, zip_dict
+
 
 def filter_df(store_dataset, store_choice, zip_choice):
 
@@ -188,11 +188,20 @@ def get_geo_df_all(store_zips, zip_dict):
     geo_df['zip'] = store_zips
 
     return geo_df
+
+def data_load():
+    store_dataset =  pickle.load(open( "store_dataset.p", "rb" ))
+    zip_codes =  pickle.load(open( "zip_codes.p", "rb" ))
+    stores_names = pickle.load(open( "stores_names.p", "rb" ))
+    zip_dict = pickle.load(open( "zip_dict.p", "rb" ))
+
+    return store_dataset, zip_codes, stores_names, zip_dict
+
 def st_ui():
     st.set_page_config(layout = "wide")
 
     
-    store_dataset, product_dataset, zip_codes, stores_names, zip_dict = data_prep()
+    store_dataset, zip_codes, stores_names, zip_dict = data_load()
     store_choice = st.sidebar.selectbox("Select a store chain", stores_names)
     df_store, message = filter_df(store_dataset, store_choice, zip_choice=0)
     store_zips = get_store_zips(df_store)

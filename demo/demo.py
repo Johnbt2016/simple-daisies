@@ -238,8 +238,7 @@ def st_ui():
         st.header(store_choice + " Stores locations - Highlight on " + str(zip_choice))
         geo_df = get_geo_df_all(store_zips, zip_dict)
         filtered_geo = geo_df.loc[geo_df['zip'] == zip_choice]
-        # float(zip_dict[zip_choice]['lat'])
-        # float(zip_dict[zip_choice]['lon']
+
         print(geo_df)
         for _, row in geo_df.iterrows():
             print(row)

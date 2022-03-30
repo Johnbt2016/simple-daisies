@@ -18,6 +18,8 @@ import pydeck as pdk
 import time
 import pickle
 
+def hello(name):
+    return name
 
 @st.cache
 def data_prep():

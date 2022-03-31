@@ -14,10 +14,10 @@ classification = Daisi("Zero Shot Text Classification")
 def news_f(query, nb = 10):
     #Daisi call to query Google News
     n = news.get_news(query = query, num = nb)
-    print(n.value())
-    data = n.value()['title'].tolist()
+    print(n.value)
+    data = n.value['title'].tolist()
     print([d for d in data])
-    return data, n.value()
+    return data, n.value
 
 
 def plot_data(n_scores):
@@ -71,7 +71,7 @@ def streamlit_ui():
         p = int(100*(i+1)/len(all))
         my_bar.progress(p)
         try:
-            results.append(all[i].value())
+            results.append(all[i].value)
         except:
             continue
     

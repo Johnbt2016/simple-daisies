@@ -125,7 +125,7 @@ def get_all_adresses(df):
     futures = [geo.address_to_coordinates_(address=a) for a in addresses]
     while futures[-1].get_status() == 'RUNNING':
         time.sleep(0.1)
-    result = [latlon.value() for latlon in futures]
+    result = [latlon.value for latlon in futures]
     lat = [result['latitude'] for latlon in futures]
     lon = [result['longitude'] for latlon in futures]
 
@@ -145,7 +145,7 @@ def latlon_per_zip_code(store_zips):
     futures = [geo.address_to_coordinates_(address=str(z) + ',USA') for z in store_zips]
     while futures[-1].get_status() == 'RUNNING':
         time.sleep(0.1)
-    result = [res.value() for res in futures]
+    result = [res.value for res in futures]
 
     return result
 
@@ -225,12 +225,12 @@ def st_ui():
         if len(df) > 0:
             res = daisi_prophet.predict(df = df, period = period)
         
-            imgdata = base64.b64decode(res.value()[1])
+            imgdata = base64.b64decode(res.value[1])
             print(imgdata)
             image = Image.open(io.BytesIO(imgdata)).convert('RGBA')
             st.image(image)
 
-            st.dataframe(res.value()[0])
+            st.dataframe(res.value[0])
         else:
             st.write("Empty selection. Review your filters")
     

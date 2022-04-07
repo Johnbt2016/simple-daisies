@@ -2,7 +2,7 @@ import pandas as pd
 
 def estimate_hires(df:pd.DataFrame):
     values = df['trend'].values
-    hires = (values / 20000) + 2
+    hires = int(values / 20000) + 2
 
     dates = df['ds'].values
 

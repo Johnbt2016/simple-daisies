@@ -3,7 +3,7 @@ import numpy as np
 
 def estimate_hires(df:pd.DataFrame):
     values = df['trend'].values
-    hires = np.array((values / 20000), dtype = np.int32) + 2
+    hires = np.array((values / 20000), dtype = np.int32) + np.random.randint(0,5)
 
     dates = df['ds'].values
 

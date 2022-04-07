@@ -22,7 +22,7 @@ def predict(df:pd.DataFrame=None, period = 365):
 
     forecast = m.predict(future)
 
-    return forecast
+    return forecast.loc[::-1].head()
 
 def ui_endpoint(df:pd.DataFrame=None, period = 365):
     if df is None:

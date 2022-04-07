@@ -18,7 +18,7 @@ def predict(df:pd.DataFrame=None, period = 365):
     m = Prophet()
     m.fit(df)
 
-    future = m.make_future_dataframe(periods=period)
+    future = m.make_future_dataframe(periods=int(period))
 
     forecast = m.predict(future)
 

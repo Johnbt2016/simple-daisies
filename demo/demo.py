@@ -17,8 +17,8 @@ import pydeck as pdk
 import time
 import pickle
 
-daisi_prophet = Daisi("Simple Prophet")
-geo = Daisi("GeoEncoder")
+daisi_prophet = Daisi("Simple Prophet", base_url = "https://app.daisi.io")
+geo = Daisi("GeoEncoder", base_url = "https://app.daisi.io")
 
 def hello(name):
     return name
@@ -221,7 +221,7 @@ def st_ui():
 
     col1, col2 = st.columns(2)
     with col1:
-        st.header(store_choice + " stores items volume forecast for Zip Code " + str(zip_choice))
+        st.header(store_choice + " volume forecast - " + str(zip_choice))
         if len(df) > 0:
             res = daisi_prophet.predict(df = df, period = period)
         
@@ -238,7 +238,7 @@ def st_ui():
     # lat_lon = latlon_per_zip_code(store_zips)
     # geo_df = get_geo_df(per_zip_code, df_store, zip_dict) 
     with col2:
-        st.header(store_choice + " Stores locations - Highlight on " + str(zip_choice))
+        st.header(store_choice + " Stores locations - " + str(zip_choice))
         geo_df = get_geo_df_all(store_zips, zip_dict)
         filtered_geo = geo_df.loc[geo_df['zip'] == zip_choice]
 

@@ -1,5 +1,6 @@
 from pydaisi import Daisi, SharedDataClient
 import io
+from PIL import Image
 
 color = Daisi("ImageColorization")
 
@@ -10,7 +11,7 @@ def give_color(repeat = 1):
     results = []
     for i in range(int(repeat)):
         obj = sd.download_fileobj("/JM/Images/B2DBy.jpeg")
-        img = io.BytesIO(obj)
+        img = Image.open(io.BytesIO(obj))
         results.append(color.run(img))
     
     return results

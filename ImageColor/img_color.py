@@ -11,6 +11,6 @@ def give_color(repeat = 1):
     for i in range(int(repeat)):
         obj = sd.download_fileobj("/JM/Images/B2DBy.jpeg")
         img = io.BytesIO(obj)
-        results.append(color.run_(img))
+        results.append(color.run(img))
     
     return results

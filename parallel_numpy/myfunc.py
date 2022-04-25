@@ -34,7 +34,7 @@ def discount_losses(exp_oil, exp_gas, vol_to_discount):
     
     # Discounted volume
     final_volume = vol_bottom - vol_to_discount
-    print(vol_bottom, vol_to_discount, final_volume)
+    # print(vol_bottom, vol_to_discount, final_volume)
 
     # UEP curve with bottom volumes to recompute composition
     n_uep_scaleup = vol_bottom / normalized_uep_at_eq_sts

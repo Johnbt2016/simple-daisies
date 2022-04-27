@@ -1,7 +1,7 @@
 import pydaisi as pyd
 import time
 
-d = pyd.Daisi("Sleeping Daisi")
+d = pyd.Daisi("Sleeping Daisi", base_url = "https://dev3.daisi.io")
 
 def compute():
     start = time.time()

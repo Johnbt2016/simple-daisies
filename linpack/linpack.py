@@ -1,6 +1,7 @@
 from sys import stderr, stdout
 from re import compile
 import time
+import numpy as np
 
 def linpack():
     start = time.time()
@@ -32,6 +33,22 @@ def linpack():
     return "%6.1f MFlops (%d from %.1f to %.1f) Time: %s seconds\n" % \
         (speeds[0],count,speeds[1],speeds[2], time.time() - start)
 
+
+def linpack2(n):
+    A = np.random.rand(n,n)
+    b = np.random.rand(n,1)
+    start = time.time()
+    solve = np.linalg.solve(A, b)
+    stop = time.time()
+
+    op = int(2*n*n*n/3)
+    ops = 1e-6 * op / (stop - start)
+
+    return op, stop - start, ops
+    
+
+
+
 if __name__ == "__main__":
-    res = linpack()
+    res = linpack2(3000)
     print(res)

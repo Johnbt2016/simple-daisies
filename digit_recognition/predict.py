@@ -38,7 +38,7 @@ def predict(img):
 
 st.title("Hand written digit recognition !")
 canvas_result = st_canvas(
-    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+    fill_color="rgba(255, 255, 255, 1.0)",  # Fixed fill color with some opacity
     stroke_width=30,
     stroke_color=3,
     background_color="#eee",

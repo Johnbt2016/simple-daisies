@@ -1,17 +1,23 @@
 from keras.models import load_model
-import cv2
+from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
 import streamlit as st
+from copy import deepcopy
+import numpy as np
 
 
 def predict(img):
-    image = img.copy()
+    image = np.array(deepcopy(img))
+    # print(image)
+    im_pil = Image.fromarray(image)
+
+    image = ImageOps.grayscale(im_pil)
     
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image = image.resize((28,28))
     # image = cv2.threshold(image, 140, 255, cv2.THRESH_BINARY)[1]
-    image = cv2.resize(image, (28, 28))
+    # image = cv2.resize(image, (28, 28))
     # display_image(image)
-    
+    image = np.array(image)
     image = image.astype('float32')
     image = image.reshape(1, 28, 28, 1)
     

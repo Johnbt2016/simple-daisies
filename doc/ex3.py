@@ -7,3 +7,7 @@ def compute():
     start = time.time()
     a = d.long_wait(1)
     return time.time() - start
+
+if __name__ == "__main__":
+    res = compute()
+    print(res)

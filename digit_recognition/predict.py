@@ -7,8 +7,11 @@ import numpy as np
 
 
 def predict(img):
-    image = np.array(deepcopy(img))
-    # print(image)
+    print(img)
+    image = np.array(deepcopy(img)).astype(np.uint8)
+    print(image.shape)
+    
+
     im_pil = Image.fromarray(image)
 
     image = ImageOps.grayscale(im_pil)
@@ -52,6 +55,8 @@ canvas_result = st_canvas(
 )
 
 # print(canvas_result.image_data)
+a = np.random.randint(255, size=(100,100,4))
 result, proba = predict(canvas_result.image_data)
+result, proba = predict(a)
 st.header("I recognize the number " + str(result)) 
 st.write("(Proba : " + str(round(proba, 2)) + ")")

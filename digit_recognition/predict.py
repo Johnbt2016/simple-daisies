@@ -39,24 +39,30 @@ def predict(img):
 
     # return pred.argmax()
 
-st.title("Hand written digit recognition !")
-canvas_result = st_canvas(
-    fill_color="rgba(255, 255, 255, 1.0)",  # Fixed fill color with some opacity
-    stroke_width=30,
-    stroke_color=3,
-    background_color="#eee",
-    background_image=None,
-    update_streamlit=True,
-    drawing_mode="freedraw",
-    point_display_radius=0,
-    key="canvas",
-    height = 600,
-    width = 600
-)
+def st_ui():
 
-# print(canvas_result.image_data)
-# a = np.random.randint(255, size=(100,100,4))
-result, proba = predict(canvas_result.image_data)
-# result, proba = predict(a)
-st.header("I recognize the number " + str(result)) 
-st.write("(Proba : " + str(round(proba, 2)) + ")")
+
+    st.title("Hand written digit recognition !")
+    canvas_result = st_canvas(
+        fill_color="rgba(255, 255, 255, 1.0)",  # Fixed fill color with some opacity
+        stroke_width=30,
+        stroke_color=3,
+        background_color="#eee",
+        background_image=None,
+        update_streamlit=True,
+        drawing_mode="freedraw",
+        point_display_radius=0,
+        key="canvas",
+        height = 600,
+        width = 600
+    )
+
+    # print(canvas_result.image_data)
+    # a = np.random.randint(255, size=(100,100,4))
+    result, proba = predict(canvas_result.image_data)
+    # result, proba = predict(a)
+    st.header("I recognize the number " + str(result)) 
+    st.write("(Proba : " + str(round(proba, 2)) + ")")
+
+if __name__ == "__main__":
+    st_ui()

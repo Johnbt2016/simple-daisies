@@ -55,8 +55,8 @@ canvas_result = st_canvas(
 )
 
 # print(canvas_result.image_data)
-a = np.random.randint(255, size=(100,100,4))
+# a = np.random.randint(255, size=(100,100,4))
 result, proba = predict(canvas_result.image_data)
-result, proba = predict(a)
+# result, proba = predict(a)
 st.header("I recognize the number " + str(result)) 
 st.write("(Proba : " + str(round(proba, 2)) + ")")

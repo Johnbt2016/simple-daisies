@@ -1,0 +1,9 @@
+streamlit
+pandas
+pydaisi
+io
+base64
+numpy
+Pillow
+pydeck
+pickle

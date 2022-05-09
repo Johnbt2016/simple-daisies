@@ -8,6 +8,8 @@ This function is ideally-suited for reconstructing samples from spline coefficie
 and is faster than convolve2d, which convolves arbitrary 2-D filters and allows for
 choosing mirror-symmetric boundary conditions.
 
+## Step 1 : Load an image and convert to grayscale
+
 ```python
 import pydaisi as pyd
 from scipy import misc
@@ -15,19 +17,26 @@ import scipy
 import numpy as np
 import matplotlib.pyplot as plt
 
-#Step 1 : Load an image and convert to grayscale
+
 face = scipy.misc.face()
 plt.gray()
 plt.imshow(face)
 plt.show()
 
 image = misc.face(gray=True).astype(np.float32)
+```
 
-#Step 2 : call the "Compute B-spline" daisi from your code
+
+## Step 2 : call the "Compute B-spline" daisi from your code
+
+```python
 b_spline = pyd.Daisi("Compute B-Spline")
 deriv = b_spline.compute_deriv(image=image).value
+```
 
-# Step 3 : Visualize the result
+## Step 3 : Visualize the result
+
+```python
 import matplotlib.pyplot as plt
 plt.imshow(deriv)
 plt.show()

@@ -11,11 +11,12 @@ choosing mirror-symmetric boundary conditions.
 ```python
 import pydaisi as pyd
 from scipy import misc
+import numpy as np
 
 image = misc.face(gray=True).astype(np.float32)
 
 b_spline = pyd.Daisi("Compute B-Spline")
-deriv = b_spline.compute_deriv(image=image)
+deriv = b_spline.compute_deriv(image=image).value
 
 import matplotlib.pyplot as plt
 plt.imshow(deriv)

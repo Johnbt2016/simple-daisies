@@ -11,7 +11,14 @@ choosing mirror-symmetric boundary conditions.
 ```python
 import pydaisi as pyd
 from scipy import misc
+import scipy
 import numpy as np
+import matplotlib.pyplot as plt
+
+face = scipy.misc.face()
+plt.gray()
+plt.imshow(face)
+plt.show()
 
 image = misc.face(gray=True).astype(np.float32)
 

@@ -15,6 +15,7 @@ import scipy
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Step 1 : Load an image and convert to grayscale
 face = scipy.misc.face()
 plt.gray()
 plt.imshow(face)
@@ -22,9 +23,11 @@ plt.show()
 
 image = misc.face(gray=True).astype(np.float32)
 
+#Step 2 : call the "Compute B-spline" daisi from your code
 b_spline = pyd.Daisi("Compute B-Spline")
 deriv = b_spline.compute_deriv(image=image).value
 
+# Step 3 : Visualize the result
 import matplotlib.pyplot as plt
 plt.imshow(deriv)
 plt.show()

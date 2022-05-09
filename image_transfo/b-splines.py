@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import signal, misc
-
+from copy import deepcopy
 
 def compute_deriv(image = None):
 
@@ -12,6 +12,13 @@ def compute_deriv(image = None):
     deriv = (signal.sepfir2d(ck, derfilt, [1]) +
                 signal.sepfir2d(ck, [1], derfilt))
 
-    return deriv
+    
+    final = deepcopy(deriv)
+    final = 1 - final
+    threshold = 0.1
+    final[final > threshold] = 1
+    final[final < threshold] = 0
+
+    return final
 
 

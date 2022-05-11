@@ -160,8 +160,8 @@ def st_ui():
         with open(python_filename, "wb") as f:
             f.write(bytes_data)  # write this content elsewhere
     
-    data = get_md("abc.md", daisi_name, python_filename, write = False)
-    st.markdown(data)
+        data = get_md("abc.md", daisi_name, python_filename, write = False)
+        st.markdown(data)
 
 if __name__ == "__main__":
     st_ui()

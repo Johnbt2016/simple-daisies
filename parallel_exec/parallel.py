@@ -1,6 +1,13 @@
 import numpy as np
 import time
 
+def apply_chunk(data_chunk, size=10000):
+    curve_x = np.arange(size) 
+    curve_y = 100*np.random.rand(size,)
+
+    res = [np.interp(data_point, curve_x, curve_y) for data_point in data_chunk]
+
+    return res
 
 def apply_func(data_point, size=10000):
     curve_x = np.arange(size) 

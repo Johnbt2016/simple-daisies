@@ -15,12 +15,13 @@ def hello(name="World"):
 
 def st_ui():
   '''Function to render the Streamlit UI'''
-  with st.expander("Summary"):
-        st.markdown(get_summary())
-
+  
   name = st.text_input('Type your name')
   greeting = hello(name)
   st.write(greeting)
+
+  with st.expander("Summary"):
+        st.markdown(get_summary(name))
 
 if __name__ == "__main__":
   st_ui()

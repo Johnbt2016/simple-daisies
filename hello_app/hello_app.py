@@ -1,9 +1,19 @@
 import streamlit as st
 
 def hello(name="World"):
-  return "Hello " + str(name)
+  '''
+  Simple hello function
+
+  Parameters:
+  - name (str) : any string
+
+  Returns:
+  - a string
+  '''
+  return "Hello " + str(name) + ", from the Daisi platform"
 
 def st_ui():
+  '''Function to render the Streamlit UI'''
   name = st.text_input('Type your name')
   greeting = hello(name)
   st.write(greeting)

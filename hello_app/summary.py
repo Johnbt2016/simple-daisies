@@ -12,8 +12,7 @@ def get_summary(name):
     print_hello_app = pyd.Daisi("Print Hello App")
     greetings = print_hello_app.hello("
     '''
-    text += name
-    text += '''").value
+    text += name + '''").value
 
     print(greetings)
     ```

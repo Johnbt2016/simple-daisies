@@ -16,7 +16,7 @@ def hello(name="World"):
 def st_ui():
   '''Function to render the Streamlit UI'''
   
-  name = st.text_input('Type your name')
+  name = st.text_input('Type your name', value = "Daisi user")
   greeting = hello(name)
   st.write(greeting)
 

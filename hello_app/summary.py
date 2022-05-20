@@ -1,4 +1,4 @@
-def get_summary(name):
+def get_summary(name = "Daisi user"):
     text = '''
 
     This Daisi is a simple endpoint to a *Hello World* function, with a straightforward

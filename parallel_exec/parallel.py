@@ -20,7 +20,9 @@ def apply_func(data_point, size=10000):
 if __name__ == "__main__":
     data_size = 100000
     data = 100 * np.random.rand(data_size,)
+    chunk_size = int(data_size / 25)
+    data_chunk = [data[i:i+chunk_size] for i in range(25)]
     start = time.time()
-    res = np.array([apply_func(d) for d in data])
+    res = np.array([apply_chunk(d, size=1000000) for d in data_chunk])
     print(time.time() - start)
     # print(res)

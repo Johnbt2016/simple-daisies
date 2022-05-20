@@ -15,3 +15,5 @@ greetings = print_hello_app.hello("Daisi user").value
 print(greetings)
 ```
 '''
+
+    return text

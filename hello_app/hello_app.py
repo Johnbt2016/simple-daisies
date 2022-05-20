@@ -18,7 +18,7 @@ def st_ui():
   
   name = st.text_input('Type your name', value = "Daisi user")
   greeting = hello(name)
-  st.write(greeting)
+  st.header(greeting)
 
   with st.expander("Summary"):
         st.markdown(get_summary(name))

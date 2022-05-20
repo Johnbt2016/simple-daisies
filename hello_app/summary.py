@@ -10,8 +10,7 @@ def get_summary(name = "Daisi user"):
     import pydaisi as pyd
 
     print_hello_app = pyd.Daisi("Print Hello App")
-    greetings = print_hello_app.hello("
-    '''
+    greetings = print_hello_app.hello("'''
     text += name + '''").value
 
     print(greetings)

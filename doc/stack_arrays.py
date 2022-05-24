@@ -1,8 +1,9 @@
 import numpy as np
-import pydaisi as pyd
+
 
 # A class definition. No endpoints are created for the methods of the class
 class Stack:
+    import numpy as np
     def __init__(self, nx):
         self.stack = np.zeros((1,nx))
         self.nb_layers = self.stack.shape[0]
@@ -33,6 +34,6 @@ if __name__ == "__main__":
 
     # Invoke the "compute()" endpoint, add a new layer to the stack 
     # and receive back the updated Stack object
-    d_execution = compute(stack=s, ar=np.random.rand(nx,))
+    d_execution = daisi_serialize.compute(stack=s, ar=np.random.rand(nx,)).value
 
     print(d_execution)

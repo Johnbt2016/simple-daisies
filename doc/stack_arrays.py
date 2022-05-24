@@ -3,7 +3,6 @@ import numpy as np
 
 # A class definition. No endpoints are created for the methods of the class
 class Stack:
-    import numpy as np
     def __init__(self, nx):
         self.stack = np.zeros((1,nx))
         self.nb_layers = self.stack.shape[0]

@@ -17,9 +17,9 @@ class Stack:
         self.stack = np.zeros((1,nx))
         self.nb_layers = self.stack.shape[0]
 
-    def stack_arrays(self, array):
+    def stack_arrays(self, ar):
         self.stack += 1
-        self.stack = np.vstack((self.stack, array))
+        self.stack = np.vstack((self.stack, ar))
         self.nb_layers = self.stack.shape[0]
 
 # Initialize a new GridStack object with 10 layers
@@ -30,7 +30,7 @@ for i in range(10):
 
 # Invoke the "compute()" endpoint, add a new layer to the stack 
 # and receive back the updated Stack object
-d_execution = daisi_serialize.compute(stack=s, array=np.random.rand(nx,)).value
+d_execution = daisi_serialize.compute(stack=s, ar=np.random.rand(nx,)).value
 
 assert d_execution.nb_layers == 11
 ```

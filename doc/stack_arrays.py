@@ -1,4 +1,5 @@
 import numpy as np
+import pydaisi as pyd
 
 # A class definition. No endpoints are created for the methods of the class
 class Stack:
@@ -6,13 +7,13 @@ class Stack:
         self.stack = np.zeros((1,nx))
         self.nb_layers = self.stack.shape[0]
 
-    def stack_arrays(self, array):
+    def stack_arrays(self, ar):
         self.stack += 1
-        self.stack = np.vstack((self.stack, array))
+        self.stack = np.vstack((self.stack, ar))
         self.nb_layers = self.stack.shape[0]
 
 # A function, for which an endpoint is created
-def compute(stack, array):
+def compute(stack, ar):
     '''
     Parameters:
     - stack (Stack) : a Stack object
@@ -21,5 +22,17 @@ def compute(stack, array):
     Returns:
     - an updated Stack object
     '''
-    stack.stack_arrays(array)
+    stack.stack_arrays(ar)
     return stack
+
+if __name__ == "__main__":
+    nx=100
+    s = Stack(nx)
+    for i in range(8):
+        s.stack_arrays(np.random.rand(nx,))
+
+    # Invoke the "compute()" endpoint, add a new layer to the stack 
+    # and receive back the updated Stack object
+    d_execution = compute(stack=s, ar=np.random.rand(nx,))
+
+    print(d_execution)

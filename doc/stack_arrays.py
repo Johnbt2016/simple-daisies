@@ -22,6 +22,7 @@ def compute(stack, ar):
     Returns:
     - an updated Stack object
     '''
+    print(a)
     stack.stack_arrays(ar)
     return stack
 

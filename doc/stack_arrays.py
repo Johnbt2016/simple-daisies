@@ -21,4 +21,5 @@ def compute(stack, array):
     Returns:
     - an updated Stack object
     '''
-    return stack.stack_arrays(array)
+    stack.stack_arrays(array)
+    return stack

@@ -9,9 +9,7 @@ class Stack:
         self.nb_layers = self.stack.shape[0]
 
     def stack_arrays(self, ar):
-        self.stack += 1
-        self.stack = ar
-        self.nb_layers = self.stack.shape[0]
+        pass
 
 # A function, for which an endpoint is created
 def compute(stack, ar):

@@ -10,7 +10,7 @@ class Stack:
 
     def stack_arrays(self, ar):
         self.stack += 1
-        self.stack = np.vstack((self.stack, ar))
+        self.stack = ar
         self.nb_layers = self.stack.shape[0]
 
 # A function, for which an endpoint is created

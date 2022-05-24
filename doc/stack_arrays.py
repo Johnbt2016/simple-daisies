@@ -14,15 +14,8 @@ class Stack:
 
 # A function, for which an endpoint is created
 def compute(stack, ar):
-    '''
-    Parameters:
-    - stack (Stack) : a Stack object
-    - array (Numpy array) : a Numpy array of shape (nx,)
 
-    Returns:
-    - an updated Stack object
-    '''
-    print(a)
+    print(ar)
     stack.stack_arrays(ar)
     return stack
 

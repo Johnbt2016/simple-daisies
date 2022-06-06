@@ -36,7 +36,7 @@ def get_paragraphs(doc, page_count, toc = None, min_length=0):
         # print(p.get_image_info(xrefs=True))
         blocks = p.get_text("blocks")
 
-        paragraphs[f"Page {i}"] = [blocks[k][4] for k in range(len(blocks)) if len(blocks[k][4]) > min_length]
+        paragraphs[f"Page {i}"] = [blocks[k][4] for k in range(len(blocks)) if len(blocks[k][4].split(' ')) > min_length]
     
     return paragraphs
 

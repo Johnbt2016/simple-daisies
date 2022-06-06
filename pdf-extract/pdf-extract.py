@@ -14,7 +14,7 @@ def get_summary(endpoint):
     pdf_extract = pyd.Daisi("laiglejm/PDF extraction")
 
     filename = <YOUR_PDF_FILE>
-    with open(filename, 'rb) as f:
+    with open(filename, 'rb') as f:
         pdfbytes = f.read()
     result = pdf_extract.get_data_from_pdfbytes(pdfbytes, type = ''' + f"'{endpoint}'" + ''').value
     ```

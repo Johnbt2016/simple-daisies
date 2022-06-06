@@ -18,7 +18,7 @@ def get_summary(endpoint):
         pdfbytes = f.read()
     result = pdf_extract.get_data_from_pdfbytes(pdfbytes, type = ''' + f"'{endpoint}'" + ''').value
     ```
-    
+
     '''
     return summary
 
@@ -102,7 +102,7 @@ def st_ui():
         pdfbytes = fileupload.getvalue()
         doc = return_doc_from_bytes(pdfbytes)
         toc, page_count = get_info(doc)
-        st.write(toc, page_count)
+        # st.write(toc, page_count)
 
         if endpoint_label == "Paragraph extraction":
             toc = get_data_from_pdfbytes(pdfbytes, type = 'toc')

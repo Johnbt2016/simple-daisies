@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 matplotlib.use('MacOSX')
 
 
+
+
 def get_fig():
     a = [0,1]
     fig, ax = plt.subplots()

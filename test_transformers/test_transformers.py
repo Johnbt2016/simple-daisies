@@ -6,9 +6,11 @@ from transformers import pipeline
 # tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
 # model = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-12-6")
 
+summarizer = pipeline("summarization", model="philschmid/distilbart-cnn-12-6-samsum")
+
 def generate_summary(text, min_length = 80, max_length=150):
     
-    summarizer = pipeline("summarization", model="philschmid/distilbart-cnn-12-6-samsum")
+    
 
     conversation = '''Jeff: Can I train a 🤗 Transformers model on Amazon SageMaker? 
     Philipp: Sure you can use the new Hugging Face Deep Learning Container. 

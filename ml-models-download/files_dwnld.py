@@ -68,7 +68,8 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
 def st_ui():
     st.title("Stable Diffusion Models download")
 
-    exceptions_log = download_models(dest="stable_diffusion_models", strmlit_ui = True)
+    if st.button("Download models"):
+        exceptions_log = download_models(dest="stable_diffusion_models", strmlit_ui = True)
 
 
 if __name__ == "__main__":

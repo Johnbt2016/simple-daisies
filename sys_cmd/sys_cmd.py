@@ -15,6 +15,4 @@ def st_ui():
         st.write(exec_cmd(prompt))
 
 if __name__ == "__main__":
-    prompt = 'rm -rf test.py'
-
-    print(exec_cmd(prompt))
+    st_ui()

@@ -21,8 +21,8 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = False):
 
     if not Path(target_name).is_file():
 
-        msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
-        st.write(msg) if strmlit_ui else print(msg, "step 1")
+        msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/ - Step1"
+        st.write(msg) if strmlit_ui else print(msg)
         try:
             os.system(f'wget https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media -P {dest}/models/ldm/stable-diffusion-v1/')
             os.system(f'mv {dest}/models/ldm/stable-diffusion-v1/sd-v1-4.ckpt?alt=media {dest}/models/ldm/stable-diffusion-v1/model.ckpt')
@@ -33,16 +33,16 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = False):
         msg = f"Skipping {target_name}"
         st.write(msg) if strmlit_ui else print(msg)
 
-    msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
-    st.write(msg) if strmlit_ui else print(msg, "Step 2")
+    msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/ - Step2"
+    st.write(msg) if strmlit_ui else print(msg)
     try:
         os.system(f'wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth -P {dest}/models/src/realesrgan/experiments/pretrained_models')
         st.write("Done") if strmlit_ui else print("Done")
     except Exception as e:
         st.write(e) if strmlit_ui else exceptions_log.append([msg,e])
 
-    msg = f"Downloading GFPGANv1.3 to {dest}/models/src/gfpgan/experiments/pretrained_models"
-    st.write(msg) if strmlit_ui else print(msg, "step 3")
+    msg = f"Downloading GFPGANv1.3 to {dest}/models/src/gfpgan/experiments/pretrained_models - Step3"
+    st.write(msg) if strmlit_ui else print(msg)
     try:
         os.system(f'wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth -P {dest}/models/src/gfpgan/experiments/pretrained_models')
         st.write("Done") if strmlit_ui else print("Done")

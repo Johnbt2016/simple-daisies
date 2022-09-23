@@ -16,7 +16,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
 
     target_name = f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt'
 
-    check_file = exec_cmd(f'(ls {target_name} >> /dev/null 2>&1 && echo yes) || echo no')
+    check_file = exec_cmd(f'(ls {target_name} >> /dev/null 2>&1 && echo yes) || echo no')[0].strip("\n")
     if check_file == 'no':
         msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
         st.write(msg) if strmlit_ui else print(msg)

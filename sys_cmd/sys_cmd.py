@@ -5,7 +5,7 @@ import streamlit as st
 def exec_cmd(prompt):
     res = os.popen(prompt)
     output = res.readlines()
-
+    print(output)
 
     return output
 

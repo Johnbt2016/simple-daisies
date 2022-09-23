@@ -5,7 +5,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
     exceptions_log = []
     dest = dest.strip("/").replace(" ", "_")
 
-    dest = "/tmp/" + dest
+    dest = "$HOME/.cache/" + dest
 
     msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
     st.write(msg) if strmlit_ui else print(msg)

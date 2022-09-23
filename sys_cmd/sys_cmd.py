@@ -4,7 +4,7 @@ import streamlit as st
 
 def exec_cmd(prompt, use_streamlit = False):
     if not use_streamlit:
-        return os.popen(prompt).readlines()
+        return os.popen(prompt).read()
     else:
         return os.popen(prompt)
 

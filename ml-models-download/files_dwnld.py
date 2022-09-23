@@ -17,9 +17,10 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = False):
 
     dest = "~/" + dest
 
-    target_name = f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt'
+    target_name = Path(f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt')
+    print(target_name.exists())
 
-    if not Path(target_name).exists():
+    if not target_name.exists():
 
         msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/ - Step1"
         st.write(msg) if strmlit_ui else print(msg)

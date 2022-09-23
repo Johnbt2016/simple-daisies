@@ -4,9 +4,9 @@ import streamlit as st
 
 def exec_cmd(prompt):
     res = os.popen(prompt)
-    output = []
-    for line in res.readlines():
-        output.append(line)
+    output = res.readlines()
+
+
     return output
 
 def st_ui():

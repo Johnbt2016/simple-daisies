@@ -2,8 +2,11 @@ import os
 import streamlit as st
 
 
-def exec_cmd(prompt):
-    return os.popen(prompt)
+def exec_cmd(prompt, use_streamlit = False):
+    if not use_streamlit:
+        return os.popen(prompt).readlines()
+    else:
+        return os.popen(prompt)
 
 def st_ui():
     st.title("Daisi platform system level commands")

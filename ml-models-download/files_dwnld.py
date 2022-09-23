@@ -1,6 +1,13 @@
 import os
 import streamlit as st
 
+def exec_cmd(prompt):
+    res = os.popen(prompt)
+    output = res.readlines()
+    print(output)
+
+    return output
+
 def download_models(dest="stable_diffusion_models", strmlit_ui = True):
     exceptions_log = []
     dest = dest.strip("/").replace(" ", "_")

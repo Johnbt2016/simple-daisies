@@ -8,7 +8,7 @@ def exec_cmd(prompt):
 
     return output
 
-def download_models(dest="stable_diffusion_models", strmlit_ui = True):
+def download_models(dest="stable_diffusion_models", strmlit_ui = False):
     exceptions_log = []
     dest = dest.strip("/").replace(" ", "_")
 

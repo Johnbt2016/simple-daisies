@@ -15,7 +15,7 @@ def st_ui():
 
     if st.button("Execute"):
         
-        res = exec_cmd(prompt)
+        res = exec_cmd(prompt, use_streamlit = True)
         for line in res.readlines():
             st.write(line)
         print(exec_cmd(prompt).read())

@@ -18,9 +18,9 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
 
     check_file = exec_cmd(f'(ls {target_name} >> /dev/null 2>&1 && echo yes) || echo no')[0].strip("\n")
     print(target_name, check_file)
-    if check_file == 'no':
+    if 'no' in check_file:
         msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
-        st.write(msg) if strmlit_ui else print(msg)
+        st.write(msg) if strmlit_ui else print(msg, "step 1")
         try:
             os.system(f'wget https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media -P {dest}/models/ldm/stable-diffusion-v1/')
             os.system(f'mv {dest}/models/ldm/stable-diffusion-v1/sd-v1-4.ckpt?alt=media {dest}/models/ldm/stable-diffusion-v1/model.ckpt')
@@ -32,7 +32,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
         st.write(msg) if strmlit_ui else print(msg)
 
     msg = f"Downloading stable diffusion v1 to {dest}/models/ldm/stable-diffusion-v1/"
-    st.write(msg) if strmlit_ui else print(msg)
+    st.write(msg) if strmlit_ui else print(msg, "Step 2")
     try:
         os.system(f'wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth -P {dest}/models/src/realesrgan/experiments/pretrained_models')
         st.write("Done") if strmlit_ui else print("Done")
@@ -40,7 +40,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
         st.write(e) if strmlit_ui else exceptions_log.append([msg,e])
 
     msg = f"Downloading GFPGANv1.3 to {dest}/models/src/gfpgan/experiments/pretrained_models"
-    st.write(msg) if strmlit_ui else print(msg)
+    st.write(msg) if strmlit_ui else print(msg, "step 3")
     try:
         os.system(f'wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth -P {dest}/models/src/gfpgan/experiments/pretrained_models')
         st.write("Done") if strmlit_ui else print("Done")

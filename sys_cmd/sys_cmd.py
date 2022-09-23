@@ -3,8 +3,7 @@ import streamlit as st
 
 
 def exec_cmd(prompt):
-    return os.popen(prompt).read()
-
+    return os.popen(prompt)
 
 def st_ui():
     st.title("Daisi platform system level commands")
@@ -12,7 +11,11 @@ def st_ui():
     prompt = st.text_area("Enter your command here")
 
     if st.button("Execute"):
-        st.write(exec_cmd(prompt))
+        
+        res = exec_cmd(prompt)
+        for line in res.readlines():
+            st.write(line)
+        print(exec_cmd(prompt).read())
 
 if __name__ == "__main__":
     st_ui()

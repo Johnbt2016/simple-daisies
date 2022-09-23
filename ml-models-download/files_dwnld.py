@@ -18,7 +18,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
     st.write(msg) if strmlit_ui else print(msg)
     try:
         os.system(f'wget https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media -P {dest}/models/ldm/stable-diffusion-v1/')
-        os.rename(f'{dest}/models/ldm/stable-diffusion-v1/sd-v1-4.ckpt?alt=media',f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt')
+        os.system(f'mv {dest}/models/ldm/stable-diffusion-v1/sd-v1-4.ckpt?alt=media {dest}/models/ldm/stable-diffusion-v1/model.ckpt')
         st.write("Done") if strmlit_ui else print("Done")
     except Exception as e:
         st.write(e) if strmlit_ui else exceptions_log.append([msg,e])
@@ -55,7 +55,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
     st.write(msg) if strmlit_ui else print(msg)
     try:
         os.system(f'wget https://heibox.uni-heidelberg.de/f/31a76b13ea27482981b4/?dl=1 -P {dest}/models/src/latent-diffusion/experiments/pretrained_models')
-        os.rename(f'{dest}/models/src/latent-diffusion/experiments/pretrained_models/index.html?dl=1', f'{dest}/models/src/latent-diffusion/experiments/pretrained_models/project.yaml')
+        os.system(f'mv {dest}/models/src/latent-diffusion/experiments/pretrained_models/index.html?dl=1 {dest}/models/src/latent-diffusion/experiments/pretrained_models/project.yaml')
         st.write("Done") if strmlit_ui else print("Done")
     except Exception as e:
         st.write(e) if strmlit_ui else exceptions_log.append([msg,e])
@@ -64,7 +64,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = True):
     st.write(msg) if strmlit_ui else print(msg)
     try:
         os.system(f'wget https://heibox.uni-heidelberg.de/f/578df07c8fc04ffbadf3/?dl=1 -P {dest}/models/src/latent-diffusion/experiments/pretrained_models')
-        os.rename(f'{dest}/models/src/latent-diffusion/experiments/pretrained_models/index.html?dl=1', f'{dest}/models/src/latent-diffusion/experiments/pretrained_models/model.ckpt')
+        os.system(f'mv {dest}/models/src/latent-diffusion/experiments/pretrained_models/index.html?dl=1 {dest}/models/src/latent-diffusion/experiments/pretrained_models/model.ckpt')
         st.write("Done") if strmlit_ui else print("Done")
     except Exception as e:
         st.write(e) if strmlit_ui else exceptions_log.append([msg,e])

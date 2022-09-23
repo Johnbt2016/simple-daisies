@@ -18,7 +18,7 @@ def download_models(dest="stable_diffusion_models", strmlit_ui = False):
     dest = "~/" + dest
 
     target_name = Path(f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt')
-    print(target_name.exists())
+    print(f'{dest}/models/ldm/stable-diffusion-v1/model.ckpt', target_name.exists())
 
     if not target_name.exists():
 
